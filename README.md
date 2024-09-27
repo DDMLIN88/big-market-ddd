@@ -1,2 +1,2 @@
-# xfg-frame-archetype - DDD 脚手架
+# big-market-ddd-ddm 大营销平台系统设计
 
