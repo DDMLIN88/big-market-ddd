@@ -4,7 +4,7 @@
 
     <resultMap id="dataMap" type="com.ddm.infrastructure.persistent.po.StrategyAward">
         <id column="id" property="id"/>
-        <result column="strategy_id" property="startegyId"/>
+        <result column="strategy_id" property="strategyId"/>
         <result column="award_id" property="awardId"/>
         <result column="award_title" property="awardTitle"/>
         <result column="award_subtitle" property="awardSubtitle"/>
@@ -18,9 +18,14 @@
     </resultMap>
 
     <select id="queryStrategyAwardList" resultMap="dataMap">
-        select *
+        select strategy_id
         from strategy_award
         limit 10
+    </select>
+    <select id="queryStrategyAwardListByStrategyId" parameterType="java.lang.Long" resultMap="dataMap">
+        select strategy_id, award_id, award_count, award_count_surplus, award_rate
+        from strategy_award
+        where strategy_id = #{strategyId}
     </select>
 
 </mapper>

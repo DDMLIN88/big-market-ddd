@@ -14,7 +14,7 @@ public class StrategyAward {
     /**自增ID**/
     private Long id;
     /**抽奖策略ID**/
-    private Long startegyId;
+    private Long strategyId;
     /**抽奖奖品ID - 内部流转使用**/
     private Integer awardId;
     /**抽奖奖品标题**/
