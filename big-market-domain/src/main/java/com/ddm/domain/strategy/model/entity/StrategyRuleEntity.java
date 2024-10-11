@@ -44,7 +44,9 @@ public class StrategyRuleEntity {
         String[] ruleValueGroups = ruleValue.split(Constants.SPACE);
         Map<String, List<Integer>> resultMap = new HashMap<>();
         for (String ruleValueGroup : ruleValueGroups) {
-            if(ruleValueGroup == null || ruleValueGroup.isEmpty()) return resultMap;
+            if(ruleValueGroup == null || ruleValueGroup.isEmpty()) {
+                return resultMap;
+            }
             String[] parts = ruleValueGroup.split(Constants.COLON);
             if(parts.length != 2) {
                 throw new IllegalArgumentException("rule_weight rule_rule invalid input format" + ruleValueGroup);
@@ -54,7 +56,7 @@ public class StrategyRuleEntity {
             for (String valueString : valueStrings) {
                 values.add(Integer.valueOf(valueString));
             }
-            resultMap.put(parts[0], values);
+            resultMap.put(ruleValueGroup, values);
         }
         return resultMap;
     }
